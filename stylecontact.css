@@ -1,0 +1,137 @@
+:root {                             /*This is global variables*/
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+
+body{
+    background-image: url('images/img1.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+   width: 50%;
+   margin: 0 auto; /* chi dung de can gia the div*/
+   height: 100vh;
+}
+.log-in{
+    background-color: var(--dark);
+}
+
+.log-in .formlogin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.sign-up{
+    background-color: var(--dark);
+    padding: 20px;
+    color: #fff;
+}
+.formfield{
+    width: 30%;
+    padding: 10px 10px;
+    color: antiquewhite;
+    
+}
+.formfield a{
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+/* this section below make the element line down*/
+.formfield input[type="text"], .formfield input[type="password"] {
+    width: 100%;
+    margin: 3px 0; /* can phan tu tren duoi*/
+    height: 25px;
+}
+.btn-submit{
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;   /*Use rem instead of pixel to be more responsive*/
+    text-decoration: none;
+    border: 0;
+    margin-top: 18px;
+}
+/*gia tri cua translate la trai phai, tren duoi*/
+.formfield input[type="checkbox"]{
+    transform: translate(0, 2px); /* di chuyen phan tu, ko nen dung margin*/
+}
+.btn-submit:hover{
+    background-color: rgb(18, 19, 19);
+    color: var(--light);
+    text-decoration: double;
+}
+.title h1{
+    margin: 0;
+}
+.title p{
+    margin-top: 5px;
+    margin-bottom: px;
+}
+.title{
+    border-bottom: 1px solid grey;
+    margin-bottom: 20px;
+}
+.signupfield label{
+    display: inline-block; /* display inline-block to set width and margin*/
+    width: 25%;
+}
+.signupfield input[type="text"], .signupfield input[type="email"], .signupfield input[type="tel"], .signupfield input[type="date"]{
+    width: 70%;
+    height: 30px;
+}
+.signupfield textarea{
+    width: 70%;
+    height: 150px;
+}
+.hobby label{
+    vertical-align: top;
+
+
+}
+.signupfield{
+    margin-bottom: 6px;
+}
+.signupbtn{
+    text-align: center;  /* can giua nhung phan tu ben tron div*/
+}
+.signupbutton{
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;   /*Use rem instead of pixel to be more responsive*/
+    text-decoration: none;
+    border: 0;
+}
+.signupbutton:hover{
+    background-color: rgb(18, 19, 19);
+    color: var(--light);
+    text-decoration: double;
+}
+
+@media(max-width: 760px) {
+    .formlogin {
+        display: block;
+    }
+    .formfield {
+        width: 90%;
+        align-self: center;
+    }
+    .signupfield.hobby {
+        display: none;
+    }
+    .btnfield {
+        text-align: center;
+        align-self: center;
+    }
+}

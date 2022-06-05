@@ -1,0 +1,122 @@
+:root {                             /*This is global variables*/
+    --primary: #ddd;
+    --dark: #333;
+    --light: #fff;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+}
+
+/* This style apply for all html elements*/
+
+
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark);
+}
+
+.btn{
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 0.6rem 1.3rem;   /*Use rem instead of pixel to be more responsive*/
+    text-decoration: none;
+    border: 0;
+}
+
+.btn:hover{
+    background-color: rgb(18, 19, 19);
+    color: var(--light);
+    text-decoration: double;
+}
+
+/* Body section*/
+
+body{
+    background-color: #ccc; /* Not using variable because only use this one time*/
+    margin: 25px 50px;
+    line-height: 1.4;         /* heigh between two text lines*/
+}
+
+.wrapper{
+    display: grid;           
+    grid-gap: 20px;
+    overflow:-moz-hidden-unscrollable;
+}
+
+.top-container {
+    display: grid;                    /*Each section need to be displayed grid on it own to style inside elements*/
+    grid-gap: 20px;
+    grid-template-areas: 
+    "showcase showcase topbox-a"       /* make it 3 equal columns*/
+    "showcase showcase topbox-b";      /*The showcase section take up 2 lines and 2 rows (both 2 dimentions not like flexbox)*/
+
+}
+
+/*Showcase, This section use display flex to align text and button easier*/ 
+
+.showcase{
+    grid-area: showcase;
+    background: url(images/aboutbg.jpg);
+    min-height: 400px;
+    background-size: cover;            /*Make the image in the real porpotion*/
+    background-position: center;       /*Not shrink the background image when we resize the browser*/
+    padding: 3rem;
+    display: flex;                     /*Use flexbox to align elements inside a small section or div easier*/
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+.showcase h1 {
+    font-size: 4rem;
+    margin-bottom: 0;                 /*Make the heading closer to the text*/
+    color: var(--light);
+}
+
+.showcase p{
+    font-size: 1.3rem;
+    margin-top: 0;                   /*Make the heading closer to the text*/
+    color: var(--light);
+}
+
+.topbox{
+    background: var(--primary);
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+}
+
+.topbox .price{
+    font-size: 2.5rem;           /*Make the price bigger*/
+}
+
+.topbox-a{
+    grid-area: topbox-a;
+}
+
+.topbox-b{
+    grid-area: topbox-b;
+}
+
+@media(max-width: 760px) {
+    .top-container{
+        grid-template-areas:          /* Make the shocase take all remain space*/
+        "showcase showcase"           /*topbox-a and b have to line down to look better*/    
+        "topbox-a topbox-b";          /*Dont have to set grid-area foe elements again*/
+    }
+    
+    .showcase h1{
+        font-size: 2.5rem;
+    }
+}
+
+@media(max-width: 500px) {
+    .top-container{
+        grid-template-areas:
+        "showcase" 
+        "topbox-a"
+        "topbox-b";
+    }
+}
